@@ -2,16 +2,16 @@
 	session_start();
 	class Comment extends CI_Controller{
 		public function media_comment($id_media){
-			$this->load->model('media_model');
-			$this->load->model('comment_model');
-			$this->load->model('user_model');
-			$data['media'] = $this->media_model->getMedia();
-			$data['commentMedia'] = $this->comment_model->getComment($id_media);
+			$this->load->model('Media_model');
+			$this->load->model('Comment_model');
+			$this->load->model('User_model');
+			$data['media'] = $this->Media_model->getMedia();
+			$data['commentMedia'] = $this->Comment_model->getComment($id_media);
 			if ($data['commentMedia']) {
 				$nb_comment = count($data['commentMedia']);
 				for ($i=0; $i < $nb_comment; $i++) {
 					//print_r($data['commentMedia']);
-					$data['user'] = $this->user_model->getCommentUser($data['commentMedia'][$i]['ref_id_user']);
+					$data['user'] = $this->User_model->getCommentUser($data['commentMedia'][$i]['ref_id_user']);
 					$data['usersComment'][$i] = array(
 						'username' => $data['user'][0]['username'], 
 						'comment' => $data['commentMedia'][$i]['post_text'],
@@ -31,7 +31,7 @@
 		}
 
 		public function add_comment(){
-			$this->load->model('comment_model');
+			$this->load->model('Comment_model');
 			$userId = $this->input->post('userId');
 			$mediaId = $this->input->post('mediaId');
 			$rating = $this->input->post('rating');
@@ -45,7 +45,7 @@
 				'post_text' => $commentText
 			);
 
-			$data['addComment'] = $this->comment_model->addComment($insert_data);
+			$data['addComment'] = $this->Comment_model->addComment($insert_data);
 
 			if (!$data['addComment']) {
 				$data['error'] = "You don't success add a new comment!";

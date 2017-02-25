@@ -14,17 +14,17 @@
 
 //~~~~~~~~~~~~~~~~~~ User, we can just remove ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function user(){
-			$this->load->model('user_model');
-			$data['users'] = $this->user_model->getUser();
+			$this->load->model('User_model');
+			$data['users'] = $this->User_model->getUser();
 			$data["page"] = 'admin/user';
 			$this->load->view('menu/content', $data);
 		}
 
 //~~~~~~~~~~~~~~~~~~ Remove User ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function remove_user($id_user, $conf){
-			$this->load->model('user_model');
+			$this->load->model('User_model');
 			$data['id'] = $id_user;
-			$data['users'] = $this->user_model->getUser();
+			$data['users'] = $this->User_model->getUser();
 			$nb_users = count($data['users']);
 
 			for ($i=0; $i < $nb_users ; $i++) { 
@@ -34,7 +34,7 @@
 			}
 
 			if (isset($conf) && $conf == 'yes') {
-				$data['user_remove'] = $this->user_model->deleteUser($data['id']);
+				$data['user_remove'] = $this->User_model->deleteUser($data['id']);
 			}
 			elseif (isset($conf) && $conf == 'null') {
 				$data['page'] = 'admin/user';
@@ -48,7 +48,7 @@
 
 			if (isset($data['user_remove'])) {
 				$data['success'] = 'You have remove the user '.$date['user']['username'];
-				$data['users'] = $this->user_model->getUser(); //i reload a new user table
+				$data['users'] = $this->User_model->getUser(); //i reload a new user table
 				$data['page'] = 'admin/user';
 				$this->load->view('menu/content', $data);
 			}
@@ -61,7 +61,7 @@
 
 //~~~~~~~~~~~~~~~~~~ Add Manga ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function add_manga(){
-			$this->load->model('media_model');
+			$this->load->model('Media_model');
 			$btn = $this->input->post('save');
 
 			if (isset($btn)) {
@@ -94,7 +94,7 @@
                 {
                         $error = 0;
 
-                        $data['manga'] = $this->media_model->getManga();
+                        $data['manga'] = $this->Media_model->getManga();
                         $nb_Manga = count($data['manga']);
 
                         for ($i=0; $i < $nb_Manga; $i++) { 
@@ -120,7 +120,7 @@
                         		'image' => $image_Path
                         		 );
 
-                        	$data['addManga'] = $this->media_model->addMedia($insert_data);
+                        	$data['addManga'] = $this->Media_model->addMedia($insert_data);
                         	//print_r($data['addManga']);
 
                         	if ($data['addManga'] == true) {
@@ -149,7 +149,7 @@
 
 //~~~~~~~~~~~~~~~~~~ Remove Manga ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function remove_manga(){
-			$this->load->model('media_model');
+			$this->load->model('Media_model');
 			$btnSearch = $this->input->post('search');
 			$btnYes = $this->input->post('yes');
 			$btnNo = $this->input->post('no');
@@ -157,7 +157,7 @@
 			if (isset($btnSearch)){
 
 				$title = $this->input->post('title');
-				$data['manga'] = $this->media_model->getManga();
+				$data['manga'] = $this->Media_model->getManga();
 				$nb_Manga = count($data['manga']);
 				//print_r($data['manga']);
 
@@ -181,7 +181,7 @@
 
 			if (isset($btnYes)) {
 				$data['yesDelete'] = 'You choose to delete '.$_SESSION['manga_found']['title'];
-				$data['remove'] = $this->media_model->deleteMedia($_SESSION['manga_found']['id']);
+				$data['remove'] = $this->Media_model->deleteMedia($_SESSION['manga_found']['id']);
 				print_r($data['remove']);
 				unset($_SESSION['manga_found']);
 				$data["page"] = 'admin/remove_manga';
@@ -203,13 +203,13 @@
 
 //~~~~~~~~~~~~~~~~~~ Update Manga ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function update_manga(){
-			$this->load->model('media_model');
+			$this->load->model('Media_model');
 			$btnSearch = $this->input->post('search');
 			$btnUpdate = $this->input->post('update');
 
 			if (isset($btnSearch)) {
 				$title = $this->input->post('title');
-				$data['manga'] = $this->media_model->getManga();
+				$data['manga'] = $this->Media_model->getManga();
 				$nb_Manga = count($data['manga']);
 
 				for ($i=0; $i < $nb_Manga ; $i++) { 
@@ -256,7 +256,7 @@
                 else
                 {
                     $error = 0;
-                    $data['manga'] = $this->media_model->getManga();
+                    $data['manga'] = $this->Media_model->getManga();
                     $nb_Manga = count($data['manga']);
 
                     if ($_SESSION['manga_found']['title'] != $title) {
@@ -286,7 +286,7 @@
                        		'image' => $image_Path
                    		);
 
-                        $data['updateManga'] = $this->media_model->updateMedia($insert_data, $_SESSION['manga_found']['id']);
+                        $data['updateManga'] = $this->Media_model->updateMedia($insert_data, $_SESSION['manga_found']['id']);
                         //print_r($data['updateManga']);
 
                         if ($data['updateManga'] == true) {
@@ -401,14 +401,14 @@
 
 //~~~~~~~~~~~~~~~~~~ remove anime ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function remove_anime(){
-			$this->load->model('media_model');
+			$this->load->model('Media_model');
 			$btnSearch = $this->input->post('search');
 			$btnYes = $this->input->post('yes');
 			$btnNo = $this->input->post('no');
 
 			if (isset($btnSearch)){
 				$title = $this->input->post('title');
-				$data['anime'] = $this->media_model->getAnime();
+				$data['anime'] = $this->Media_model->getAnime();
 				$nb_anime = count($data['anime']);
 
 				for ($i=0; $i < $nb_anime ; $i++) { 
@@ -431,7 +431,7 @@
 
 			if (isset($btnYes)) {
 				$data['yesDelete'] = 'You choose to delete '.$_SESSION['anime_found']['title'];
-				$data['remove'] = $this->media_model->deleteMedia($_SESSION['anime_found']['id']);
+				$data['remove'] = $this->Media_model->deleteMedia($_SESSION['anime_found']['id']);
 				print_r($data['remove']);
 				unset($_SESSION['anime_found']);
 				$data["page"] = 'admin/remove_anime';
@@ -452,13 +452,13 @@
 
 //~~~~~~~~~~~~~~~~~~ Update anime ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		public function update_anime(){
-			$this->load->model('media_model');
+			$this->load->model('Media_model');
 			$btnSearch = $this->input->post('search');
 			$btnUpdate = $this->input->post('update');
 
 			if (isset($btnSearch)) {
 				$title = $this->input->post('title');
-				$data['anime'] = $this->media_model->getAnime();
+				$data['anime'] = $this->Media_model->getAnime();
 				$nb_Manga = count($data['anime']);
 
 				for ($i=0; $i < $nb_Manga ; $i++) { 
@@ -506,7 +506,7 @@
                 else
                 {
                     $error = 0;
-                    $data['anime'] = $this->media_model->getAnime();
+                    $data['anime'] = $this->Media_model->getAnime();
                     $nb_Manga = count($data['anime']);
 
                     if ($_SESSION['anime_found']['title'] != $title) {
@@ -538,7 +538,7 @@
                    		);
 
 
-                        $data['updateAnime'] = $this->media_model->updateMedia($insert_data, $_SESSION['anime_found']['id']);
+                        $data['updateAnime'] = $this->Media_model->updateMedia($insert_data, $_SESSION['anime_found']['id']);
                         //print_r($data['updateManga']);
 
                         if ($data['updateAnime'] == true) {

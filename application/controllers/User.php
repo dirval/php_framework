@@ -2,8 +2,8 @@
 	session_start();
 	Class User extends CI_Controller {
 		public function validate_login(){
-			$this->load->model('user_model');
-			$data['users'] = $this->user_model->getUser();
+			$this->load->model('User_model');
+			$data['users'] = $this->User_model->getUser();
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$passHash = hash('sha256', $password);
@@ -27,14 +27,14 @@
 		}
 
 		public function register(){
-			$this->load->model('user_model');
+			$this->load->model('User_model');
 			// I take all parameters of my form
 			$username = $this->input->post('username');
 			$pass = $this->input->post('pass');
 			$confpass = $this->input->post('confpass');
 			$email = $this->input->post('email');
 			$description = $this->input->post('description');
-			$data['users'] = $this->user_model->getUser();
+			$data['users'] = $this->User_model->getUser();
 			$nb_users = count($data['users']);
 
 
@@ -66,7 +66,7 @@
 					);
 
 				//print_r($insertData);
-				$data['addUser'] = $this->user_model->registerUser($insertData);
+				$data['addUser'] = $this->User_model->registerUser($insertData);
 				//print_r($data['addUser']);
 
 				$data['success'] = 'Your now register! Enjoy your day :)';
@@ -91,13 +91,13 @@
 		}
 
 		public function profile(){
-			$this->load->model('user_model');
+			$this->load->model('User_model');
 			$data['page'] = 'user/profile';
 			$this->load->view('menu/content', $data);
 		}
 
 		public function updateProfile(){
-			$this->load->model('user_model');
+			$this->load->model('User_model');
 			$btnUpdate = $this->input->post('btnUpdateProfile');
 
 			if ($btnUpdate) {
@@ -156,7 +156,7 @@
                 				'img_profile' => $image_profile
                 			);
 
-                		$data['userUpdate'] = $this->user_model->userUpdate($insertData, $id_user);
+                		$data['userUpdate'] = $this->User_model->userUpdate($insertData, $id_user);
                 		if ($data['userUpdate']) {
                 			$data['success'] = 'You have update your profile!';
                 			$userUpdate = array(
