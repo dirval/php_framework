@@ -1,0 +1,15 @@
+CREATE DATABASE ci_test;
+USE ci_test;
+GRANT ALL ON ci_test.* TO 'ci'@'localhost' IDENTIFIED BY 'ci_pass';
+
+CREATE TABLE Customers(
+id_customers INT PRIMARY KEY AUTO_INCREMENT,
+fname VARCHAR(30),
+lname VARCHAR(30)) Engine=InnoD8;
+
+INSERT INTO Customers(fname,lname)
+VALUE ('Lisa', 'Smith');
+INSERT INTO Customers(fname,lname)
+VALUE ('Bob', 'Jones');
+INSERT INTO Customers(fname,lname)
+VALUE ('Mona', 'Lisa

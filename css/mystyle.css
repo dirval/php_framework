@@ -1,0 +1,390 @@
+html{
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgrey;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 9em;
+}
+
+footer{
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: grey;
+  text-align: center;
+  height: 120px;
+}
+
+footer img{
+  width: 100px;
+}
+
+footer p img{
+  width: 20px;
+}
+
+
+.formRegister input[type=text], .formRegister input[type=password], .formRegister input[type=number], .formRegister input[type=file], .formRegister textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formRegister input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formRegister input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.formRegister {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.formLogin {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 40%;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.nav-custom{
+  background-color: dimgrey;
+}
+
+.nav-custom a{
+  color: white;
+  font-size: 20px;
+}
+
+/*.nav-custom a:hover{
+  font-weight: bold;
+}*/
+
+.nav-custom ul {
+  position: absolute;
+  width: 99%;
+  background-color: grey;
+  border: 1px solid grey;
+  border-radius: 0 0 4px 4px;
+  text-align: center;
+  left:-999em;
+}
+
+.nav-custom, .nav-custom ul {
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.nav-custom li:hover ul{
+    left: 0;
+}
+
+.navbar-nav{
+    width: 85%;
+}
+
+#logoutButton{
+    float: right;
+    margin-right: 2%;
+}
+
+#logoutButton img{
+    max-width: 30px;
+    max-height: 17px;
+}
+
+.head_pres{
+  padding-top: 3%;
+  width: 80%;
+  margin: auto;
+}
+
+.head_pres img{
+  float: left;
+  margin: 0 3% 3%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.head_pres div span{
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+/*.head_pres div{
+  margin: auto;
+}*/
+
+.head_pres h4{
+  font-size: 25px;
+}
+
+.card{
+  color: white;
+  width: 70%;
+  margin: 2% auto 0;
+  border-radius: 14px;
+  background-color: #333;
+}
+
+.card-block{
+  text-align: justify;
+  margin: 3%;
+  padding-bottom: 3%;
+  clear: left;
+  border-top: 1px solid grey;
+}
+
+.searchAlpha{
+  text-align: center;
+}
+
+#tableau {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  margin: 10px 0;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+#tableau th {
+  font-size: 13px;
+  font-weight: normal;
+  padding: 8px;
+  background: grey;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  color: black;
+  font-size: 18px;
+}
+#tableau td {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+  color: lightblue;
+  border-top: 1px solid #333;
+  background: #333;
+  font-size: 18px;
+  font-weight: bold;
+}
+#tableau tfoot tr td {
+  background: grey;
+  font-size: 20px;
+  color: blue;
+  text-align:center;
+}
+#tableau tbody tr:hover td {
+  background: grey;
+  color: red;
+}
+
+#tableau a:hover {
+  text-decoration:underline;
+}
+
+fieldset, label {
+  margin: 0;
+  padding: 0;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+  float: right; 
+}
+
+
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+#formComment{
+  width: 70%;
+  margin: 3% auto 0;
+  border: 1px transparent black;
+  box-shadow: 5px 5px 0 0;
+  height: 300px;
+  background-color: grey;
+  border-radius: 5px;
+}
+
+#formComment textarea{
+  width: 100%;
+  margin: auto;
+  height: 200px;
+}
+
+#formComment input[type=submit]{
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttonComment{
+  text-align: right;
+  margin: 0 0 10px;
+}
+
+.buttonComment button{
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  background-color: lightgrey;
+  color: #333;
+}
+
+.buttonComment button:hover{
+  background-color: #333;
+  color: lightgrey;
+}
+
+#returnLogin button{
+  width: 100%;
+  background-color: lightblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container{
+  margin-top: 2%;
+}
+
+#showComment img{
+  width: 100px;
+  height: 100px;
+  margin: 1%;
+}
+
+#showComment h4{
+  display: inline-block;
+  font-size: 30px;
+}
+
+#profile{
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #333;
+  color: white;
+  padding: 2%;
+  text-align: center;
+}
+
+#profile img{
+  width: 200px;
+  height: 200px;
+}
+
+#profile a{
+  text-decoration: none;
+}
+
+#profile button{
+  width: 100%;
+  background-color: lightblue;
+  color: black;
+  font-size: 16px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+#profile a:hover button{
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 0 8px 0;
+}
+
+#profile .info{
+  text-align: left;
+}
+
+#profile h2{
+  font-size: 40px;
+  padding: 1%;
+  background-color: grey;
+  border-radius: 15px;
+  box-shadow: 0 0 8px 0 ;
+}
+
+#profile label{
+  text-decoration: underline;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#profile p{
+  font-size: 16px;
+  padding: 3%;
+}
+
+#mainPres{
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #333;
+  padding: 1%;
+  color: white;
+  text-align: justify;
+}
