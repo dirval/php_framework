@@ -3,7 +3,6 @@
 ?>
 <div class="container">
 	<h1>This is a Admin user page!</h1>
-	<h2>Hello <?php echo $_SESSION['user']['username']; ?></h2>
 
 	<?php
 		if (isset($error)) {

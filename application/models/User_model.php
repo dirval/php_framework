@@ -7,7 +7,7 @@
 		}
 
 		public function registerUser($insert_data){
-			$this->db->insert('User', $insert_data);
+			$this->db->insert('user', $insert_data);
 			if($this->db->affected_rows() > 0){
 				return true;
 			}
@@ -19,7 +19,7 @@
 
 		public function deleteUser($id_user){
 			$this->db->where("id=".$id_user);
-			$this->db->delete("User");
+			$this->db->delete("user");
 			if($this->db->affected_rows() > 0){
 				return true;
 			}

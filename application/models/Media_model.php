@@ -21,7 +21,7 @@
 		}
 
 		public function addMedia($insert_data){
-			$this->db->insert("Media" ,$insert_data);
+			$this->db->insert("media" ,$insert_data);
 			if($this->db->affected_rows() > 0){
 				return true;
 			}
